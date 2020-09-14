@@ -3,10 +3,11 @@ import { DataService } from './data.service';
 import { Observable } from 'rxjs';
 
 @Component({
-    selector: 'app-normal-component',
-    template: 'Normal Component ({{  data$ | async }}) <button (click)="upValue()">{{ value }}</button>'
+    template: `
+        Internal Angular Elements Component ({{ data$ | async }}) <button (click)="upValue()">{{ value }}</button>
+    `
 })
-export class NormalComponent {
+export class InternalAngularElementsComponent {
     public value = 0;
 
     public data$: Observable<number>;
@@ -14,6 +15,7 @@ export class NormalComponent {
     public constructor(dataService: DataService) {
         this.data$ = dataService.data$;
     }
+
 
     public upValue() {
         this.value += 1;
